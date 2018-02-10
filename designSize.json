@@ -1,0 +1,36 @@
+{
+  "createAt": "20180210",
+  "updateAt": "20180210",
+  "data": [{
+      "name": "5寸光盘",
+      "size": {
+        "width": 120,
+        "height": 120,
+        "unit": "mm"
+      }
+    },
+    {
+      "name": "名片-横版",
+      "size": {
+        "width": 90,
+        "height": 55,
+        "unit": "mm"
+      }
+    }, {
+      "name": "名片-竖版",
+      "size": {
+        "width": 55,
+        "height": 90,
+        "unit": "mm"
+      }
+    }, {
+      "name": "名片-方版",
+      "size": {
+        "width": 90,
+        "height": 90,
+        "unit": "mm"
+      }
+    }
+  ]
+
+}
