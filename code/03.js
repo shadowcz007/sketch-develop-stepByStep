@@ -6,12 +6,69 @@ var textLayers=[];
 var str=getStrFromPasteBoard();
 
 var strs=splitStr(str);
+var title=getTitle(str);
+
+var _newArtboard=newArtboard(title);
+
+var _x=0,_y=0,_w=0,_h=0;
 
 for(var i=0;i<strs.length;i++){
+   var _tLayer= addTextLine(strs[i],i);
+      textLayers.push(_tLayer);
+    var _textFrame=_tLayer.frame();
 
-    addTextLine(strs[i],i)
+   log(_textFrame.x())
+    _w=_textFrame.x()+_textFrame.width();
+    //log(_w)
+    ((_textFrame.height()+_textFrame.y())>_h)?_h=(_textFrame.height()+_textFrame.y()):null;
+    
+    _newArtboard.addLayers([_tLayer]);
 
 };
+
+
+
+ log(_w)
+log(_h)
+
+ 
+
+ 
+ 
+
+var _artboardFrame = _newArtboard.frame();
+  _artboardFrame.setX(_x);
+
+  _artboardFrame.setY(_y);
+
+  _artboardFrame.setWidth(_w);
+
+  _artboardFrame.setHeight(_h);
+ 
+page.addLayers([_newArtboard]);
+
+
+
+function newArtboard(_name){
+    var newArtboard=[MSArtboardGroup new]
+    newArtboard.name=_name;
+
+ 
+var artboardFrame = [newArtboard frame];
+  
+  artboardFrame.setX(0);
+
+  artboardFrame.setY(0);
+
+  artboardFrame.setWidth(100);
+
+  artboardFrame.setHeight(100);
+
+  //page.addLayers([newArtboard]);
+ 
+
+  return newArtboard
+}
 
 
 function addTextLine(_strs,_i){
@@ -44,9 +101,15 @@ textFrame.y=_y;
 textFrame.width=_fontSize;
 //textFrame.height=200;
 
-page.addLayer(textLayer)
-    
+//page.addLayer(textLayer)
+  return textLayer  
+};
+
+function getTitle(_str){
+var _strs=_str.split('\n');
+return _strs[0]
 }
+
 
 function splitStr(_str){
 
