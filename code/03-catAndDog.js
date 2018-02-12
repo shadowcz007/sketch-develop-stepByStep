@@ -10,9 +10,7 @@ _newArtboard.name = (new Date()).getTime().toString();
 var _artboardFrame =_newArtboard.frame();
 
 var _ab_w = 0,
-  _ab_h = 0,
-  _w=[doc askForUserInput:@"width" initialValue:@"2000"],
-  _h=[doc askForUserInput:@"height" initialValue:@"200"];;
+  _ab_h = 0,_w=[doc askForUserInput:@"width" initialValue:@"2000"],_h=[doc askForUserInput:@"height" initialValue:@"200"];;
 
 for (var i = 0; i < data.length; i++) {
   var _url = data[i];
@@ -77,15 +75,15 @@ function drawImg(x, y, _url) {
   var image = [[NSImage alloc] initByReferencingFile:_url];
 
   var img = MSImageData.alloc().initWithImage(image);
-
-  var rect = drawRect(x, y, image.size().width, image.size().height);
+let _w=100,_h=100*image.size().width/image.size().height;
+  var rect = drawRect(x, y, _w, _h);
 
   img2Fill(rect, img);
 
   return {
     layer: rect,
-    width: image.size().width + x,
-    height: image.size().height + y
+    width: _w + x,
+    height: _h + y
   };
 };
 
@@ -119,7 +117,7 @@ function img2Fill(layer, img) {
 
   fill.setImage(img);
 
-  fill.setPatternFillType(1);
+  fill.setPatternFillType(3);
 
 };
 
