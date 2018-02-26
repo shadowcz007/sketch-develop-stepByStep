@@ -2,7 +2,6 @@ var doc=context.document;
 var page=doc.currentPage();
 
 
-
 r=1000;
 n=100;
 step=2*Math.PI/n;
@@ -20,7 +19,6 @@ for (var i=0;i<2*Math.PI;i+=step){
     log('-------')
  
 
- 
     var p1=NSMakePoint(0,0);
     var p2=NSMakePoint(x,y);
     var p3=NSMakePoint(x2,y2);
